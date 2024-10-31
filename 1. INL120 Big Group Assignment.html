@@ -1,0 +1,2743 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vacation Oasis
+        
+            
+         Den Mthimkhulu - u23750074     
+         Pabalelo Oagile - u23755212
+         Phindile Ndlovu - U24623076
+         Unathi Koyana - u24755436
+         Khaviso Hatlane - u24888509
+         Oageng Tshabangwe - u22752138 
+         Sihle Majodina - u24725910
+        
+        
+        
+        
+        </title>
+        
+
+    <!-- Leaflet CSS for map and map markers -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+
+         <script src="https://kit.fontawesome.com/ce8ff0c297.js" crossorigin="anonymous"></script>
+
+    <!-- Names and Student Numbers:
+         Den Mthimkhulu - u23750074 
+         Pabalelo Oagile - u23755212
+         Phindile Ndlovu - U24623076
+         Unathi Koyana - u24755436
+         Khaviso Hatlane - u24888509
+         Oageng Tshabangwe - u22752138 
+         Sihle Majodina - u24725910 -->        
+        
+        
+        
+        <style>
+            
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                color: #333;
+                background-color: #ffffff;
+            }
+
+           
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul li {
+                position: relative;
+            }
+
+            .dropbtn {
+                color: #000000;
+                text-decoration: none;
+                padding: 22px;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #0288d1;
+                min-width: 160px;
+                z-index: 1;
+                border-radius: 4px;
+            }
+
+            .dropdown-content a {
+                color: #000000;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ffffff;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+           
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul li {
+                position: relative;
+                margin-right: 15px;
+            }
+
+            .dropbtn {
+                color: #000000;
+                text-decoration: none;
+                padding: 15px;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #0b2432;
+                min-width: 167px;
+                z-index: 1;
+                border-radius: 4px;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #000000;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            header {
+                background-color: #0288d1;
+                color: white;
+                padding: 15px 0;
+                text-align: center;
+            }
+
+            header nav ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            header nav ul li {
+                display: inline;
+                margin-right: 15px;
+            }
+
+            header nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            #home,
+            #contact {
+                padding: 20px;
+                max-width: 800px;
+                margin: auto;
+            }
+
+            #destinations {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                justify-content: flex-start;
+            }
+
+            .destination-card {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+
+            .destination-card h3 {
+                color: #0288d1;
+            }
+
+
+            #contact-form label {
+                display: block;
+                margin: 10px 0 5px;
+            }
+
+            #contact-form input,
+            #contact-form textarea {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+
+            #contact-form button {
+                background-color: #de0000;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            
+            .carousel-container {
+                display: flex;
+                overflow: hidden; 
+                position: relative;
+                max-width: 100%; 
+                margin: 20px auto; 
+                border-radius: 8px; 
+                box-shadow: 0 4px 10px #000000; 
+            }
+
+            .carousel-wrapper {
+                display: flex;
+                transition: transform 0.5s ease; 
+            }
+
+            .carousel-item {
+                flex: 0 0 33.3333%; 
+                max-width: 33.3333%; 
+                padding: 0;
+                position: relative; 
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: 480px; 
+                object-fit: cover; 
+                border-radius: 8px; 
+            }
+
+            .location-label {
+                position: absolute;
+                bottom: 30px; 
+                right: 10px; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                color: white; 
+                padding: 5px; 
+                border-radius: 4px; 
+            }
+
+           
+            .logo {
+                height: 50px; 
+                vertical-align: middle;
+                margin-right: 10px; 
+            }
+
+            .slogan {
+                font-size: 18px; 
+                margin-top: 5px; 
+            }
+
+           
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                color: #333;
+                background-color: #f4f4f4;
+            }
+
+           
+            .intro-section {
+                background-color: #bde5ea; 
+                padding: 40px;
+                text-align: center;
+                border-radius: 8px;
+                margin: 20px 0;
+                box-shadow: 0 4px 10px #000000;
+            }
+
+            .intro-section h2 {
+                color: #0272d1; 
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .intro-section p {
+                font-size: 18px;
+                line-height: 1.6; 
+                color: #000000; 
+            }
+
+
+
+
+
+.destination-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    align-items: center; 
+}
+
+
+
+
+@media (max-width: 768px) {
+    .destination-card {
+        grid-template-columns: 1fr; 
+    }
+
+            }
+
+            
+.destination-card ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .destination-card {
+        display: block; 
+    }
+}
+
+
+#destinations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.destination-card {
+    background-color: rgb(181, 181, 181);
+    border-radius: 62px;
+    box-shadow: 0 4px 6px #000000;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.destination-card img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 400px; 
+}
+
+.destination-card h3 {
+    
+    color: #cd0000;
+    margin-top: 10px;
+}
+
+.destination-card p, ul {
+    
+    margin-top: 10px;
+    line-height: 1.6; 
+}
+
+.destination-card ul {
+    list-style-type: disc; 
+    margin-left: 20px; 
+}
+
+.destination-card a {
+    display: block; 
+    margin-top: 15px;
+    color: #4242ff;
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            width: 20%; 
+            text-align: center;
+        }
+       
+        .table-pics {
+            width: 100%; 
+            height: auto; 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .table-pics:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 0 20px rgb(255, 223, 0), 0 0 40px rgba(255, 223, 0, 0.6); 
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.filter-btn {
+    background-color: #9a0202;
+    color: #ffffff;
+    padding: 0px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.filter-btn:hover {
+    background-color: #070792;
+}
+
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+           
+
+        .province-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px #000000;
+            display: none;
+            background-color: #cccccc;
+        }
+
+        .province-table.active {
+            display: table;
+        }
+
+        .province-header {
+            background-color: #005f99;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000000;
+            color: white;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #001899;
+        }
+
+.booking-btn {
+    padding: 8px 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.booking-btn:hover {
+    background-color: #0606a1;
+    animation: heartbeat 0.6s ease-in-out;
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+        
+        h1 {
+            text-align: center;
+            color: #192a03;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px #000000;
+            border-radius: 10px;
+        }
+
+        .location-card {
+            border: 1px solid #110f0f;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #c4c4c4;
+            box-shadow: 0px 4px 6px #000000;
+        }
+
+        .location-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .location-card h2 {
+            color: #ad0000;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .season {
+            color: #0e0ecf;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .description {
+            color: #000000;
+            font-size: 0.95em;
+            margin: 10px 0;
+            line-height: 1.6em;
+        }
+
+        .container p {
+            margin: 0;
+            font-size: 0.9em; 
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #000000;
+        }
+        h1 {
+            color: #00060c; 
+        }
+        h2 {
+            color: #0909c2; 
+        }
+        h3 {
+            color: #ab0808; 
+        }
+        h4, h5, h6 {
+            color: #666; 
+        }
+        h7, h8, h9, h10 {
+            color: #000; 
+        }
+        .itinerary {
+            display: none;
+            background-color: #b8b7b7;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #000000;
+        }
+        .active {
+            display: block;
+        }
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+        .tabs li {
+            margin-right: 20px;
+            cursor: pointer;
+            background-color: #000000; 
+            color: #ececec;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .tabs li.active {
+            background-color: #a30000; 
+        }
+        .itinerary ul, .itinerary ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .itinerary p {
+            line-height: 1.6;
+        }
+
+.image-table-container {
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px #000000; 
+    max-width: 1200px; 
+    margin: 20px auto; 
+}
+
+.table-pics {
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px; 
+}
+
+     
+        .vacation-map-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #vacation-map {
+            height: 400px;
+            width: 100%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+      
+        .map-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+
+       
+        .map-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+
+    #contact {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #toggle-button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #toggle-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    #toggle-button:focus {
+        outline: none;
+    }
+
+    #contact-form-container {
+        margin-top: 20px;
+    }
+
+    #response-message {
+        font-weight: bold;
+        color: green; 
+    }       
+          
+            
+{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .restaurant-card {
+            background-color: white;
+            border-radius: 23px;
+            box-shadow: 0 2px 5px #000000;
+            overflow: hidden;
+            text-align: center;
+            padding: 0px;
+        }
+        .restaurant-card img {
+            width: 100%;
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 16px;
+            margin: 10px 0 5px 0; 
+        }
+        p {
+            font-size: 14px;
+            color: #3c3535;
+            margin: 612; 
+        }
+            
+            
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 38px;
+        }
+        iframe {
+            border: 0;
+            width: 796px;
+            height: 315px;
+        }       
+            
+    {
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.vacation-oasis { 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.vacation-oasis body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+.vacation-oasis img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.vacation-oasis nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #333;
+}
+
+.vacation-oasis nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.vacation-oasis nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.vacation-oasis section {
+    margin-bottom: 20px;
+}
+
+
+.vacation-oasis .grid {
+    display: flex;
+    gap: 20px;
+}
+
+.vacation-oasis .grid-item {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .vacation-oasis .grid {
+        flex-direction: column;
+    }
+
+    .vacation-oasis nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .vacation-oasis body {
+        font-size: 14px;
+    }
+
+    .vacation-oasis nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .vacation-oasis nav ul {
+        gap: 5px;
+    }
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+footer {
+    background-color: #333; 
+    color: white; 
+    text-align: center;
+    padding: 20px; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.icon-container {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 4px; 
+}
+
+.fa-brands {
+    font-size: 2em; 
+    margin: 0 24px; 
+}
+
+.footer-links a {
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 0.95em; 
+    padding: 5px 19px; 
+    border-radius: 5px; 
+    transition: all 0.3s ease; 
+    margin-top: 10px; 
+    display: inline-block; 
+}
+
+.footer-links a:hover {
+    background-color: #ffd700; 
+    color: #333; 
+}
+
+.footer-copy {
+    font-size: 0.85em; 
+    margin-top: 10px;
+}
+
+.footer-copy {
+    font-size: 0.85em; 
+    margin-top: 10px; 
+    color: white; 
+}
+
+            .footer-heading {
+    color: white; 
+}
+     
+    .dineplan-button {
+        background-color: #096e0d; 
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 1.1s ease;
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    
+    .dineplan-button:hover {
+        background-color: #ff0000;
+    }
+
+    
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.1);
+        }
+        50% {
+            transform: scale(1);
+        }
+        75% {
+            transform: scale(1.1);
+        }
+    }         
+            
+   .weather-widget {
+            font-family: 'Roboto Slab', serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .weather-widget {
+            margin: -21px 0; 
+            margin-left: 0px; 
+            
+        }  
+            
+{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .weather-widget {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #024286; 
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #7b1313;
+        }
+
+        button:focus {
+            outline: none; 
+        }
+
+        .weather {
+            margin-top: 20px;
+        }            
+            
+            
+        </style>
+    </head>
+
+    <body>
+     
+        <header>
+            <h1>
+                <img src="Vacation Oasis.png" alt="Vacation Oasis Logo" class="logo" />
+                Vacation Oasis
+            </h1>
+            <div class="slogan"><strong>EXPLORE, RELAX, REPEAT</strong></div>
+            <nav>
+                <ul>
+                  
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Destinations</a>
+                        <div class="dropdown-content">
+                           <a href="Provinces.html#eastern-cape">Eastern Cape</a>
+
+<a href="Provinces.html#free-state">Free State</a>
+<a href="Provinces.html#gauteng">Gauteng</a>
+<a href="Provinces.html#kwazulu-natal">KwaZulu-Natal</a>
+<a href="Provinces.html#limpopo">Limpopo</a>
+<a href="Provinces.html#mpumalanga">Mpumalanga</a>
+<a href="Provinces.html#northern-cape">Northern Cape</a>
+<a href="Provinces.html#north-west">North West</a>
+<a href="Provinces.html#western-cape">Western Cape</a>
+
+                        </div>
+                    </li>
+
+                 
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Explore Experiences</a>
+                        <div class="dropdown-content">
+
+<a href="Explore Experiences.html#wildlife-safaris">Wildlife Safaris</a>
+<a href="Explore Experiences.html#adventure-activities">Adventure Activities</a>
+<a href="Explore Experiences.html#historical-sites">Historical Sites</a>
+<a href="Explore Experiences.html#hiking-trails">Hiking Trails</a>
+<a href="Explore Experiences.html#wine-tasting">Wine Tasting</a>
+<a href="Explore Experiences.html#beaches-islands">Beaches & Islands</a>
+                        </div>
+                    </li>
+
+                   
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Accommodations</a>
+                        <div class="dropdown-content">
+<a href="Accommodation.html">Luxury Hotels</a>
+<a href="Accommodation.html">Budget Hotels</a>
+<a href="Accommodation.html">Safari Lodges</a>
+<a href="Accommodation.html">Beach Resorts</a>
+<a href="Accommodation.html">Guesthouses & B&Bs</a>
+<a href="Accommodation.html">Villas & Cottages</a>
+                        </div>
+                    </li>
+
+                   
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Travel Services</a>
+                        <div class="dropdown-content">
+<a href="Travel Services.html">Car hire</a>
+<a href="Travel Services.html">Travel Insurance</a>
+<a href="Travel Services.html">Guided Tours</a>
+<a href="Travel Services.html">Event Planning</a>
+                        </div>
+                    </li>
+
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">About Us</a>
+                        <div class="dropdown-content">
+<a href="About Us.html#our-story">Our Story</a>
+<a href="About Us.html#mission-vision">Mission and Vision</a>
+<a href="About Us.html#testimonials">Testimonials</a>
+ <a href="Booking and Contact us.html">Contact Us</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Moving pictures  Section -->
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carousel">
+                <div class="carousel-item">
+                    <img src="All the beauty.jpeg" alt="Beautiful Landscape" />
+                    <div class="location-label">📍 Durban beach</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="aquarium (1).jpeg" alt="Cape Town's Two Oceans Aquarium" />
+                    <div class="location-label">📍 Cape Town's Two Oceans Aquarium</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Aquarium.jpeg" alt="Two Oceans Aquarium" />
+                    <div class="location-label">📍 Two Oceans Aquarium, Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Blyde River Canyon, South Africa.jpeg" alt="Blyde River Canyon" />
+                    <div class="location-label">📍 Blyde River Canyon</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Kirstenbosch Botanical Garden.jpeg" alt="Kirstenbosch National Botanical Garden" />
+                    <div class="location-label">📍 Kirstenbosch National Botanical Garden</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="blue water.jpeg" alt="Blue Water" />
+                    <div class="location-label">📍 Durban Beach</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="johannesburg.jpeg" alt="Johannesburg" />
+                    <div class="location-label">📍 Johannesburg, Gauteng, South Africa</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Knysna Elephant Park, The Garden Route.jpeg" alt="Knysna Elephant Park" />
+                    <div class="location-label">📍 Knysna Elephant Park, Knysna</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Knysna.jpeg" alt="Knysna" />
+                    <div class="location-label">📍 Knysna, Western Cape</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Robben Island (2).jpeg" alt="Robben Island" />
+                    <div class="location-label">📍 Robben Island, off the coast of Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Robben Island.jpeg" alt="Robben Island" />
+                    <div class="location-label">📍 Robben Island</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Safari in South Africa.jpeg" alt="Safari" />
+                    <div class="location-label">📍 Kruger National Park</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Kruger national park.jpeg" alt="Kruger National Park" />
+                    <div class="location-label">📍 Kruger National Park, South Africa</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Durban.jpeg" alt="Durban" />
+                    <div class="location-label">📍 Durban, KwaZulu-Natal</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Winelands.jpeg" alt="Cape Winelands" />
+                    <div class="location-label">📍 Cape Winelands, Western Cape, South Africa</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Apartheid Museum.jpeg" alt="Apartheid Museum" />
+                    <div class="location-label">📍 Apartheid Museum, Johannesburg</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Buffalo.jpeg" alt="Buffalo" />
+                    <div class="location-label">📍 Kruger National Park</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="bus.jpeg" alt="Bus" />
+                    <div class="location-label">📍 Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Zip line.jpeg" alt="Zip line" />
+                    <div class="location-label">📍 Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Eat.jpeg" alt="Eat" />
+                    <div class="location-label">📍 La Parada V&A Waterfront, Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Cape Point_ The Best Things To Do at this Iconic Landmark.jpeg" alt="Cape Point" />
+                    <div class="location-label">📍 Cape Point, Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Cape Town - Paragliding Hotspot.jpeg" alt="Cape Town Paragliding" />
+                    <div class="location-label">📍 Paragliding in Cape Town</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Aerial Cableway.jpeg" alt="Aerial Cableway" />
+                    <div class="location-label">📍Table Mountain, Cableway</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Boulders Beach.jpeg" alt="Boulders Beach.jpeg" />
+                    <div class="location-label">📍Boulders Beach</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our introduction Section -->
+        <section class="intro-section">
+            <h2>Journey into the World of Vacation Oasis</h2>
+            <p>
+                Welcome to Vacation Oasis, your ultimate gateway to the breathtaking beauty and vibrant culture of South
+                Africa. Our mission is to create unforgettable travel experiences that allow you to explore the stunning
+                landscapes, wildlife, and rich heritage of this incredible country. Whether you're seeking the thrill of
+                a safari, the tranquility of pristine beaches, or the excitement of urban adventures, Vacation Oasis
+                offers expertly curated tours that cater to every traveler’s desires. We pride ourselves on our
+                personalized service, ensuring that each journey reflects your unique interests and preferences.
+            </p>
+            <p>
+                At Vacation Oasis, we understand that travel is not just about visiting new places; it's about creating
+                lasting memories. Our team of travel experts is dedicated to providing you with the highest level of
+                service, from the moment you inquire to the day you return home. With our slogan, <strong>"Explore, Relax,
+                Repeat,"</strong> we invite you to...
+            </p>
+        </section>
+
+        <!-- Popular Destinations Section -->
+        <section id="home">
+            <h2>Popular Destinations in South Africa</h2>
+
+            <div id="destinations">
+
+    <div class="destination-card">
+        <img src="https://i.pinimg.com/originals/5b/67/0a/5b670a59c036661f77960258f9f02375.jpg" alt="Cape Town" />
+<h3>Cape Town <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>
+            Experience the stunning landscapes and rich history of Cape Town, where mountains meet the sea.
+        </p>
+        <ul>
+            <li>Visit <strong>Robben Island</strong> and learn about its historical significance.</li>
+            <li>Indulge in wine tasting at the beautiful <strong>Cape Winelands</strong>.</li>
+            <li>Take a cable car to the summit of <strong>Table Mountain</strong> for breathtaking views.</li>
+            <li>Explore marine life at the <strong>Two Oceans Aquarium</strong>.</li>
+            <li>Stroll through the lush <strong>Kirstenbosch National Botanical Garden</strong>.</li>
+        </ul>
+      <a href="#link-cape-town">Discover More Things to Do in Cape Town</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://i.pinimg.com/564x/fd/61/88/fd6188358e7a3e71d050384e8e6abe27.jpg" alt="Kruger National Park" />
+        <h3>Kruger National Park <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>Embark on an unforgettable safari adventure in one of Africa's largest game reserves.</p>
+        <ul>
+            <li>Spot the <strong>Big Five</strong> in their natural habitat.</li>
+            <li>Experience thrilling <strong>Game Drives</strong> at dawn and dusk.</li>
+            <li>Join <strong>Guided Bush Walks</strong> to connect with nature.</li>
+            <li>Go <strong>Bird Watching</strong> in a rich ecosystem.</li>
+            <li>Experience the thrill of <strong>Night Safaris</strong>.</li>
+        </ul>
+    <a href="#link-kruger-national-park">Discover More Things to Do in Kruger National Park</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://as1.ftcdn.net/v2/jpg/01/43/34/70/1000_F_143347064_tp8WqQRTxmYJwhv3Uaq9IniDJLEBpzjZ.jpg" alt="Durban" />
+       <h3>Durban <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>Enjoy the warm Indian Ocean, golden beaches, and vibrant culture in Durban.</p>
+        <ul>
+            <li>Visit <strong>uShaka Sea World</strong> for thrilling aquatic adventures.</li>
+            <li>Stroll along the stunning <strong>Golden Mile</strong> beachfront.</li>
+            <li>Discover marine wonders at <strong>uShaka Marine World</strong>.</li>
+        </ul>
+    <a href="#link-durban">Discover More Things to Do in Durban</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://as1.ftcdn.net/v2/jpg/00/38/45/02/1000_F_38450224_X5AN1ivdmTlUEpzM8K3XmDVthpgw2YdQ.jpg" alt="Knysna" />
+     <h3>Knysna <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>Explore the picturesque town of Knysna, known for its lagoons and forests.</p>
+        <ul>
+            <li>Take a ferry to <strong>Featherbed Nature Reserve</strong> for scenic views.</li>
+            <li>Play a round of golf at the prestigious <strong>Pezula Championship Golf Club</strong>.</li>
+            <li>Wander through the serene <strong>Goukamma Nature Reserve</strong>.</li>
+            <li>Enjoy water activities on the <strong>Knysna Lagoon</strong>.</li>
+        </ul>
+      <a href="#link-knysna">Discover More Things to Do in Knysna</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://i.pinimg.com/564x/8f/f1/0e/8ff10e4012248a06bf8e9235a7ebd8e9.jpg" alt="Johannesburg" />
+     <h3>Johannesburg <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>Delve into South Africa's rich history and vibrant culture in Johannesburg.</p>
+        <ul>
+            <li>Experience thrills at <strong>Gold Reef City Theme Park</strong>.</li>
+            <li>Learn about the past at the <strong>Apartheid Museum</strong>.</li>
+            <li>Visit <strong>Mandela's House</strong> for a glimpse into his legacy.</li>
+            <li>Pay your respects at the <strong>Hector Pieterson Memorial</strong>.</li>
+        </ul>
+ <a href="#link-johannesburg">Discover More Things to Do in Johannesburg</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://as2.ftcdn.net/v2/jpg/04/97/11/49/1000_F_497114957_z5xw3jip9jD8VUJQXlTI8zEsP36XPZef.jpg" alt="Gqeberha" />
+       <h3>Gqeberha <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+
+        <p>Experience the charm of Gqeberha (formerly Port Elizabeth), with its stunning coastline and rich heritage.</p>
+        <ul>
+            <li>Explore aviation history at the <strong>South African Air Force Museum</strong>.</li>
+            <li>Relax at the beautiful <strong>Sardinia Bay Beach</strong>.</li>
+            <li>Discover wildlife at <strong>Addo Elephant National Park</strong>.</li>
+            <li>Visit the <strong>Nelson Mandela Metropolitan Art Museum</strong>.</li>
+            <li>Enjoy entertainment at the <strong>Boardwalk Hotel, Casino, and Convention Centre</strong>.</li>
+        </ul>
+    <a href="#link-gqeberha">Discover More Things to Do in Gqeberha (Port Elizabeth)</a><br>
+    </div>
+
+    <div class="destination-card">
+        <img src="https://as2.ftcdn.net/v2/jpg/00/85/70/47/1000_F_85704706_mlTJK0D4BrHGeiq3JWk75vSXgeoIhmcJ.jpg" alt="Pretoria" />
+       <h3>Pretoria <i class="fa-solid fa-location-dot fa-bounce fa-sm" style="color: #ff0000;"></i></h3>
+
+        <p>Immerse yourself in the historical and cultural heart of South Africa in Pretoria.</p>
+        <ul>
+            <li>Marvel at the architecture of the <strong>Union Building</strong>.</li>
+            <li>Explore diverse species at the <strong>National Zoological Gardens</strong>.</li>
+            <li>Reflect at the <strong>Freedom Park Heritage Site</strong>.</li>
+            <li>Hike the scenic <strong>Hennops Hiking Trail</strong>.</li>
+            <li>Appreciate art at the <strong>Pretoria Art Museum</strong>.</li>
+        </ul>
+        <a href="#link-pretoria">Discover More Things to Do in Pretoria</a><br>
+    </div>
+</div>
+
+
+           
+        </section>
+<h1>Gallery <i class="fa-solid fa-camera-retro fa-fade fa-xs" style="color: #000000;"></i></h1>
+
+
+<div class="image-table-container">
+    <table>
+        <tr>
+            <td><img class="table-pics" src="https://i.pinimg.com/originals/13/65/f2/1365f2072aa7b170a038e264b0b2f738.jpg" alt="God's Window"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/90/c8/9a/90c89a86f63dd8dcccb8bb8b1bbe912c.jpg" alt="Lions in Kruger National Park"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/60/cb/27/60cb27d4d19b1cbcf039451474c5829f.jpg" alt="Table Mountain at Night"></td>
+            <td><img class="table-pics" src="https://cf2.bstatic.com/xdata/images/hotel/max1280x900/500973612.jpg?k=2dd7e2e7cea783959717ccf77c71a9586ddeb3b1504ac3923083aaa5e2d75d12&o=&hp=1" alt="Royal Morubisi River Lodge"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/10/02/06/1002068bf00cc2872dd71d5dbcb1d862.jpg" alt="Montecasino"></td>
+        </tr>
+        <tr>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/14/52/27/145227adc979ee65d64a0b91ed069489.jpg" alt="Golden Gate Highlands National Park"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/originals/ba/33/0e/ba330e624300fcde831e8549adf65e25.jpg" alt="Kalahari Desert"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/6b/01/aa/6b01aa26ed17ece890d971b8f5ee6e31.jpg" alt="V&A Waterfront"></td>
+            <td><img class="table-pics" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/0b/5e/ca/filename-dsc-0153-jpg.jpg?w=1200&h=900&s=1" alt="Jeffreys Bay"></td>
+            <td><img class="table-pics" src="https://i.pinimg.com/564x/2e/7c/73/2e7c731f201114f0d7ebf742d163c817.jpg" alt="Aquila Private Game Reserve"></td>
+        </tr>
+    </table>
+</div>
+
+        
+
+
+
+
+    <!-- Filter Buttons for each province -->
+    <div class="filter-buttons">
+        <button class="filter-btn" onclick="showProvince('eastern-cape')">Eastern Cape</button>
+        <button class="filter-btn" onclick="showProvince('free-state')">Free State</button>
+        <button class="filter-btn" onclick="showProvince('gauteng')">Gauteng</button>
+        <button class="filter-btn" onclick="showProvince('kwazulu-natal')">KwaZulu-Natal</button>
+        <button class="filter-btn" onclick="showProvince('limpopo')">Limpopo</button>
+        <button class="filter-btn" onclick="showProvince('mpumalanga')">Mpumalanga</button>
+        <button class="filter-btn" onclick="showProvince('northern-cape')">Northern Cape</button>
+        <button class="filter-btn" onclick="showProvince('north-west')">North West</button>
+        <button class="filter-btn" onclick="showProvince('western-cape')">Western Cape</button>
+    </div>
+
+    <!-- Eastern Cape Table -->
+    <table class="province-table" id="eastern-cape">
+        <tr class="province-header">
+            <th colspan="3">Eastern Cape Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Addo Elephant National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Gorah Elephant Camp: R31,500 per night (luxury lodge with full board).</li>
+                    <li>Spekboom Tented Rest Camp: From R1,036 per night (self-catering).</li>
+                    <li>Activities: Game drives, self-drive safaris, wildlife spotting.</li>
+                    <li>Entry Fee: R360 for international adults, R180 for children.</li>
+                    <li>Booking: <a href="https://www.sanparks.org/parks/addo-elephant/accommodation" target="_blank">Addo Elephant National Park Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R360 / R180</td>
+        </tr>
+        <tr>
+            <td>Tsitsikamma National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Tsitsikamma Village Inn: Approximately R1,200 per night.</li>
+                    <li>Activities: Hiking trails, canoeing, bungee jumping at Bloukrans Bridge.</li>
+                    <li>Entry Fee: R100 for adults.</li>
+                    <li>Booking: <a href="https://www.nature-reserve.co.za/reservation_tsitsikamma-coastal-national-park.html" target="_blank">Tsitsikamma National Park Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R100</td>
+        </tr>
+        <tr>
+            <td>Baviaanskloof Wilderness Area</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Baviaanskloof Lodge: Starting at R600 per night.</li>
+                    <li>Activities: Hiking, 4x4 trails, wildlife viewing.</li>
+                    <li>Entry Fee: R40 per person.</li>
+                    <li>Booking: <a href="https://www.baviaanskloof.com" target="_blank">Baviaanskloof Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R40</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+            <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Free State Table -->
+    <table class="province-table" id="free-state">
+        <tr class="province-header">
+            <th colspan="3">Free State Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Golden Gate Highlands National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Golden Gate Hotel: R1,000 per night.</li>
+                    <li>Activities: Hiking, birdwatching, scenic drives.</li>
+                    <li>Entry Fee: R40 for adults.</li>
+                    <li>Booking: <a href="https://www.booking.com/landmark/za/golden-gate-highlands-national-park.en-gb.html?aid=356980&label=gog235jc-1DCAUo-wFCI2dvbGRlbi1nYXRlLWhpZ2hsYW5kcy1uYXRpb25hbC1wYXJrSDNYA2j7AYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gCi7uruAbAAgHSAiQ5YjNkYzVmYi0xZjcwLTQ5MDItODc0OC04Njk4NmY0ZmIyNjjYAgTgAgE&sid=e6bbf41bbab84997801e0233bdc09778&inac=0&keep_landing=1&" target="_blank">Golden Gate Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R40</td>
+        </tr>
+        <tr>
+            <td>Clarens</td>
+            <td>
+                <ul>
+                    <li>Accommodation: The Clarens Retreat: R800 per night.</li>
+                    <li>Activities: Art galleries, hiking, outdoor activities.</li>
+                    <li>Booking: <a href="https://www.clarens.co.za" target="_blank">Clarens Accommodation</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R800</td>
+        </tr>
+        <tr>
+            <td>Vredefort Dome</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Dome Guesthouse: R900 per night.</li>
+                    <li>Activities: Geology tours, hiking.</li>
+                    <li>Booking: <a href="https://www.vredefortdome.co.za" target="_blank">Parys Accommodation</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R900</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+            <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Gauteng Table -->
+    <table class="province-table" id="gauteng">
+        <tr class="province-header">
+            <th colspan="3">Gauteng Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Apartheid Museum</td>
+            <td>
+                <ul>
+                    <li>Entry Fee: R150 for adults.</li>
+                    <li>Booking: <a href="https://www.apartheidmuseum.org" target="_blank">Apartheid Museum Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R150</td>
+        </tr>
+        <tr>
+            <td>Cradle of Humankind</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Maropeng Boutique Hotel: R1,600 per night.</li>
+                    <li>Tours: Start at R200 per person.</li>
+                    <li>Booking: <a href="https://www.maropeng.co.za" target="_blank">Cradle of Humankind Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R200</td>
+        </tr>
+        <tr>
+            <td>Soweto</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Soweto Hotel & Conference Centre: R1,200 per night.</li>
+                    <li>Cultural tours: R100-R200.</li>
+                    <li>Booking: <a href="https://www.sowetotours.co.za" target="_blank">Soweto Tours</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R200</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+           <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- KwaZulu-Natal Table -->
+    <table class="province-table" id="kwazulu-natal">
+        <tr class="province-header">
+            <th colspan="3">KwaZulu-Natal Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>uKhahlamba Drakensberg Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Drakensberg Sun Resort: R1,500 per night.</li>
+                    <li>Activities: Hiking, rock climbing, cultural experiences.</li>
+                    <li>Entry Fee: R50 per person.</li>
+                    <li>Booking: <a href="https://www.drakensberg.co.za" target="_blank">Drakensberg Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R50</td>
+        </tr>
+        <tr>
+            <td>Hluhluwe-iMfolozi Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Hilltop Camp: R1,000 per night.</li>
+                    <li>Activities: Safari experiences, birdwatching.</li>
+                    <li>Booking: <a href="https://www.hluhluwegamereserve.com/hluhluwe-reservations-bookings/" target="_blank">Hluhluwe-iMfolozi Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R1,000</td>
+        </tr>
+        <tr>
+            <td>Durban Beaches</td>
+            <td>
+                <ul>
+                    <li>Accommodation: The Oyster Box Hotel: R3,500 per night.</li>
+                    <li>Activities: Surfing, sunbathing, beach activities.</li>
+                    <li>Entry Fee: Mostly free.</li>
+                </ul>
+            </td>
+            <td class="price">Free</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+             <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Limpopo Table -->
+    <table class="province-table" id="limpopo">
+        <tr class="province-header">
+            <th colspan="3">Limpopo Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Mapungubwe National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Mapungubwe Lodge: R1,200 per night.</li>
+                    <li>Activities: Wildlife viewing, cultural heritage tours.</li>
+                    <li>Entry Fee: R40 per person.</li>
+                    <li>Booking: <a href="https://www.nature-reserve.co.za/reservation_mapungubwe-national-park.html" target="_blank">Mapungubwe Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R40</td>
+        </tr>
+        <tr>
+            <td>Modjadji Cycad Reserve</td>
+            <td>
+                <ul>
+                    <li>Entry Fee: R40 per adult.</li>
+                    <li>Activities: Nature walks, cycad viewing.</li>
+                    <li>Booking: <a href="https://www.booking.com/searchresults.en-gb.html?aid=356980&label=gog235jc-1BCAso-wFCFW1vZGphZGppLWVzdGF0ZS1sb2RnZUgzWANo-wGIAQGYAQm4ARfIAQzYAQHoAQGIAgGoAgO4Ati5q7gGwAIB0gIkZTcwOGY3N2EtYWFhNy00OTY1LWExMzgtNDVkOTY4NjQ1MGM52AIF4AIB&highlighted_hotels=5857927&redirected=1&city=900053438&hlrd=user_sh&group_adults=2&source=hotel&expand_sb=1&keep_landing=1&sid=e6bbf41bbab84997801e0233bdc09778" target="_blank">Modjadji Reserve Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R40</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+          <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Mpumalanga Table -->
+    <table class="province-table" id="mpumalanga">
+        <tr class="province-header">
+            <th colspan="3">Mpumalanga Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Kruger National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Skukuza Rest Camp: R415 for camping; luxury lodges up to R18,000.</li>
+                    <li>Activities: Game drives, bush walks, birdwatching.</li>
+                    <li>Entry Fee: R400 for international adults.</li>
+                    <li>Booking: <a href="https://www.sanparks.org/reservations/accommodation/filters/parks/26/arrivalDate/2024-10-13/departureDate/2024-10-14/camps/0%7C239%7C51%7C31%7C32%7C52%7C81%7C123%7C122%7C121%7C34%7C35%7C48%7C49%7C36%7C37%7C38%7C228%7C39%7C40%7C216%7C53%7C41%7C42%7C43%7C44%7C45%7C46%7C50%7C102/types/0/features/0" target="_blank">Kruger Park Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R400</td>
+        </tr>
+        <tr>
+            <td>Blyde River Canyon</td>
+            <td>
+                <ul>
+                    <li>Entry Fee: R35 per person.</li>
+                    <li>Activities: Scenic views, hiking.</li>
+                    <li>Booking: <a href="https://www.blyderivercanyon.co.za" target="_blank">Blyde River Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R35</td>
+        </tr>
+        <tr>
+            <td>God’s Window</td>
+            <td>
+                <ul>
+                    <li>Entry Fee: R15 per person.</li>
+                    <li>Accommodation: Nearby guesthouses from R700.</li>
+                </ul>
+            </td>
+            <td class="price">R15</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+              <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Northern Cape Table -->
+    <table class="province-table" id="northern-cape">
+        <tr class="province-header">
+            <th colspan="3">Northern Cape Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Kgalagadi Transfrontier Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Nossob Rest Camp: R600 for camping; luxury options from R4,000.</li>
+                    <li>Activities: Game viewing, 4x4 trails.</li>
+                    <li>Entry Fee: R70 for adults.</li>
+                    <li>Booking: <a href="https://www.sanparks.org/parks/kgalagadi" target="_blank">Kgalagadi Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R70</td>
+        </tr>
+        <tr>
+            <td>Augrabies Falls National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Augrabies Falls Lodge: R500 per night.</li>
+                    <li>Activities: Hiking, viewing the falls.</li>
+                    <li>Entry Fee: R70.</li>
+                    <li>Booking: <a href="https://www.booking.com/region/za/augrabies-falls-national-park.en-gb.html?aid=356980&label=gog235jc-1DCAYo-wFCHWF1Z3JhYmllcy1mYWxscy1uYXRpb25hbC1wYXJrSDNYA2j7AYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gCvLiruAbAAgHSAiQwNDdmODZmZC0yZTE1LTQ2MmQtYWVmOS05ZDZlYTE2ZThmNjXYAgTgAgE&sid=e6bbf41bbab84997801e0233bdc09778&keep_landing=1&" target="_blank">Augrabies Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R70</td>
+        </tr>
+        <tr>
+            <td>Namaqualand</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Namaqua National Park: R600 per night.</li>
+                    <li>Activities: Wildflower viewing in spring.</li>
+                    <li>Booking: <a href="https://www.namaqualand.co.za" target="_blank">Namaqualand Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R600</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+              <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- North West Table -->
+    <table class="province-table" id="north-west">
+        <tr class="province-header">
+            <th colspan="3">North West Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Pilanesberg National Park</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Pilanesberg Safari Lodge: R1,500 per night.</li>
+                    <li>Activities: Game drives, wildlife spotting.</li>
+                    <li>Entry Fee: R120 for adults.</li>
+                    <li>Booking: <a href="https://www.booking.com/city/za/hartbeespoort.en-gb.html" target="_blank">Pilanesberg Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R120</td>
+        </tr>
+        <tr>
+            <td>Sun City Resort</td>
+            <td>
+                <ul>
+                    <li>Accommodation: The Palace of the Lost City: R5,000 per night.</li>
+                    <li>Activities: Water park, golf, entertainment.</li>
+                    <li>Entry Fee: R80 for day visitors.</li>
+                    <li>Booking: <a href="https://www.suninternational.com/sun-city/accommodation/" target="_blank">Sun City Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R80</td>
+        </tr>
+        <tr>
+            <td>Hartbeespoort Dam</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Hartbeespoort Holiday Resort: R900 per night.</li>
+                    <li>Activities: Cable car rides, markets.</li>
+                    <li>Entry Fee: R240 for cable rides.</li>
+                    <li>Booking: <a href="https://www.hartbeespoort.co.za" target="_blank">Hartbeespoort Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R240</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+         <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Western Cape Table -->
+    <table class="province-table" id="western-cape">
+        <tr class="province-header">
+            <th colspan="3">Western Cape Attractions</th>
+        </tr>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>Price (Per Day)</th>
+        </tr>
+        <tr>
+            <td>Table Mountain</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Cape Grace Hotel: R4,500 per night.</li>
+                    <li>Activities: Hiking, cableway rides.</li>
+                    <li>Entry Fee: R380 for adults for the cableway.</li>
+                    <li>Booking: <a href="https://www.tablemountain.net" target="_blank">Table Mountain Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R380</td>
+        </tr>
+        <tr>
+            <td>Cape Winelands</td>
+            <td>
+                <ul>
+                    <li>Accommodation: Lanzerac Hotel & Spa: R2,000 per night.</li>
+                    <li>Activities: Wine tastings, vineyard tours.</li>
+                    <li>Booking: <a href="https://www.booking.com/region/za/cape-winelands.html" target="_blank">Cape Winelands Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R2,000</td>
+        </tr>
+        <tr>
+            <td>Cape of Good Hope</td>
+            <td>
+                <ul>
+                    <li>Entry Fee: R360 for international visitors.</li>
+                    <li>Accommodation: Nearby lodges from R1,000.</li>
+                    <li>Booking: <a href="https://www.sanparks.org/parks/table-mountain/what-to-do/attractions/cape-of-good-hope-cape-point" target="_blank">Cape of Good Hope Booking</a>.</li>
+                </ul>
+            </td>
+            <td class="price">R360</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+             <button class="booking-btn" onclick="window.location.href='Booking and Contact us.html'">Book Now</button>
+
+            </td>
+        </tr>
+    </table>
+
+
+   <h1>Seasonal Travel Recommendations</h1>
+
+    <div class="container">
+
+        <!-- Cape Town -->
+        <div class="location-card">
+            <img src="https://res.cloudinary.com/hynomj8e0/image/upload/c_fit,w_1200,h_1200/z0ewj8vq4mgai1jncvlq.png" alt="Cape Town">
+          <h2 id="link-cape-town">Cape Town</h2>
+            <p class="season">December – February</p>
+            <p class="description">Soak up the summer sun on golden beaches, sip local wines, and hike iconic Table Mountain. Enjoy festivals, markets, and seaside relaxation.</p>
+            <p class="season">March – May</p>
+            <p class="description">Warmer weather is perfect for wine tasting and scenic drives along the coast.</p>
+            <p class="season">June – August</p>
+            <p class="description">Best time for whale watching, cozy restaurants, and misty mountain views.</p>
+            <p class="season">September – November</p>
+            <p class="description">With wildflowers blooming, spring is ideal for beach days, gardens, and cultural exploration.</p>
+        </div>
+
+        <!-- Kruger National Park -->
+        <div class="location-card">
+            <img src="https://cms.groupeditors.com/img/a301d67a-d80d-4b7d-92bb-4e554c702536.jpg" alt="Kruger National Park">
+     <h2 id="link-kruger-national-park">Kruger National Park</h2>
+            <p class="season">December – February</p>
+            <p class="description">Lush landscapes come alive for birdwatching, with colorful scenes of migratory birds.</p>
+            <p class="season">March – May</p>
+            <p class="description">Enjoy breathtaking sunsets and cooler game drives as the park transitions into autumn.</p>
+            <p class="season">June – August</p>
+            <p class="description">Peak safari season with Big Five sightings around waterholes and ideal temperatures for bush walks.</p>
+            <p class="season">September – November</p>
+            <p class="description">Spring brings baby animals, flowering trees, and perfect photo ops.</p>
+        </div>
+
+        <!-- Durban -->
+        <div class="location-card">
+            <img src="https://www.travelstart.co.za/blog/wp-content/uploads/2018/08/Durban-Summer_Blog.jpg" alt="Durban">
+              <h2 id="link-durban">Durban</h2>
+            <p class="season">December – February</p>
+            <p class="description">Experience sun, surf, and sand along the Golden Mile, plus thrilling aquatic adventures at uShaka Marine World.</p>
+            <p class="season">March – May</p>
+            <p class="description">As the heat softens, explore beachfront markets and enjoy Durban’s cultural events.</p>
+            <p class="season">June – August</p>
+            <p class="description">Mild temperatures make it perfect for exploring heritage sites and sampling local cuisine.</p>
+            <p class="season">September – November</p>
+            <p class="description">Warm spring days are ideal for enjoying the city’s nightlife and outdoor festivals.</p>
+        </div>
+
+        <!-- Knysna -->
+        <div class="location-card">
+            <img src="https://www.visitknysna.co.za/wp-content/uploads/2021/12/Knysna-Splash-Swim.jpg" alt="Knysna">
+          <h2 id="link-knysna">Knysna</h2>
+            <p class="season">December – February</p>
+            <p class="description">Kayak on Knysna Lagoon, hike forest trails, and enjoy sunny days by the water’s edge.</p>
+            <p class="season">March – May</p>
+            <p class="description">Perfect for hiking, lagoon exploration, and visiting cozy cafes in town.</p>
+            <p class="season">June – August</p>
+            <p class="description">Attend the Knysna Oyster Festival and enjoy winter’s peaceful beauty.</p>
+            <p class="season">September – November</p>
+            <p class="description">Spring is magical, with ideal weather for birdwatching and boat tours.</p>
+        </div>
+
+        <!-- Johannesburg -->
+        <div class="location-card">
+            <img src="https://media.istockphoto.com/id/697945296/photo/johannesburg-evening-cityscape-of-hillbrow.jpg?s=612x612&w=0&k=20&c=4VHUAEVXHZf8GwQ-ltegjjj2_9pdeewG2FonG2XUBYc=" alt="Johannesburg">
+        <h2 id="link-johannesburg">Johannesburg</h2>
+            <p class="season">December – February</p>
+            <p class="description">Summer brings vibrant art galleries, markets, and exciting nightlife.</p>
+            <p class="season">March – May</p>
+            <p class="description">Ideal for city tours, historical site visits, and outdoor shopping.</p>
+            <p class="season">June – August</p>
+            <p class="description">Clear winter skies are perfect for city walks and museum visits.</p>
+            <p class="season">September – November</p>
+            <p class="description">See the jacaranda blooms, perfect for photography and festivals.</p>
+        </div>
+
+        <!-- Gqeberha -->
+        <div class="location-card">
+            <img src="https://blog.nmbt.co.za/cache/ce_img_cache/local/uploads/files/NMBSunset_770_428_70_s.jpg" alt="Gqeberha">
+          <h2 id="link-gqeberha">Gqeberha (Port Elizabeth)</h2>
+            <p class="season">December – February</p>
+            <p class="description">Dive into beach season, with the Indian Ocean and vibrant Boardwalk entertainment.</p>
+            <p class="season">March – May</p>
+            <p class="description">Great for exploring local markets and Addo Elephant National Park.</p>
+            <p class="season">June – August</p>
+            <p class="description">Cooler days are ideal for whale watching and hiking coastal trails.</p>
+            <p class="season">September – November</p>
+            <p class="description">Enjoy blooming spring flowers, warm days, and local events.</p>
+        </div>
+
+        <!-- Pretoria -->
+        <div class="location-card">
+            <img src="https://www.visittshwane.co.za/wp-content/uploads/2017/05/gallery_jakaranda_trees_03.jpg" alt="Pretoria">
+          <h2 id="link-pretoria">Pretoria</h2>
+            <p class="season">December – February</p>
+            <p class="description">Explore lush botanical gardens, vibrant markets, and the Union Buildings.</p>
+            <p class="season">March – May</p>
+            <p class="description">Autumn is perfect for hiking, art galleries, and exploring heritage sites.</p>
+            <p class="season">June – August</p>
+            <p class="description">Clear skies make for great city tours and leisurely strolls.</p>
+            <p class="season">September – November</p>
+            <p class="description">Experience the stunning jacaranda bloom throughout the city.</p>
+        </div>
+
+        <!-- Pilanesberg National Park -->
+        <div class="location-card">
+            <img src="https://www.southernafrica360.com/wp-content/uploads/2024/04/Sun-Deck-1536x1024.jpg" alt="Pilanesberg National Park">
+            <h2>Pilanesberg National Park</h2>
+            <p class="season">December – February</p>
+            <p class="description">Summer brings lush vegetation and vibrant birdlife, perfect for birdwatching.</p>
+            <p class="season">March – May</p>
+            <p class="description">Enjoy pleasant temperatures and fewer crowds for game drives and stunning sunsets.</p>
+            <p class="season">June – August</p>
+            <p class="description">Prime safari season; excellent opportunities to see the Big Five.</p>
+            <p class="season">September – November</p>
+            <p class="description">Spring arrives with baby animals and blooming landscapes for photography.</p>
+        </div>
+
+        <!-- Madikwe Game Reserve -->
+        <div class="location-card">
+            <img src="https://www.southernafrica360.com/wp-content/uploads/2024/04/Safari-Plains-Fire-Pit-1536x930.jpg" alt="Madikwe Game Reserve">
+            <h2>Madikwe Game Reserve</h2>
+            <p class="season">December – February</p>
+            <p class="description">Summer features high temperatures and lush scenery, ideal for birdwatching.</p>
+            <p class="season">March – May</p>
+            <p class="description">Cooler autumn temperatures are perfect for active wildlife and stunning sunsets.</p>
+            <p class="season">June – August</p>
+            <p class="description">Best visibility during winter as wildlife gathers at water sources.</p>
+            <p class="season">September – November</p>
+            <p class="description">Spring showcases new life and lush landscapes, ideal for guided walks.</p>
+        </div>
+
+    </div>
+
+
+    <h1>Plan your Day with Vacation Oasis</h1>
+    <h2>Your Ultimate Travel Itineraries Await!</h2>
+    
+    <ul class="tabs">
+        <li class="tab active" onclick="showItinerary('cape-town')">Cape Town</li>
+        <li class="tab" onclick="showItinerary('kruger')">Kruger National Park</li>
+        <li class="tab" onclick="showItinerary('durban')">Durban</li>
+        <li class="tab" onclick="showItinerary('knysna')">Knysna</li>
+        <li class="tab" onclick="showItinerary('johannesburg')">Johannesburg</li>
+        <li class="tab" onclick="showItinerary('gqeberha')">Gqeberha</li>
+        <li class="tab" onclick="showItinerary('pretoria')">Pretoria</li>
+        <li class="tab" onclick="showItinerary('pilanesberg')">Pilanesberg</li>
+        <li class="tab" onclick="showItinerary('madikwe')">Madikwe Game Reserve</li>
+    </ul>
+
+    <div id="itineraries">
+
+        <!-- Cape Town Itinerary -->
+        <div id="cape-town" class="itinerary active">
+            <h2>Cape Town Itinerary</h2>
+            <h3>Day 1: Arrival and Scenic Exploration</h3>
+            <p><strong>Welcome to Cape Town!</strong> Your adventure begins here.</p>
+            <ul>
+                <li>10:00 AM - Arrive at Cape Town International Airport</li>
+                <li>12:00 PM - Check into your hotel</li>
+                <li>1:00 PM - Lunch at a local café overlooking the ocean</li>
+                <li>3:00 PM - Visit the stunning Table Mountain</li>
+                <li>6:00 PM - Dinner at a vibrant V&A Waterfront restaurant</li>
+            </ul>
+
+            <h3>Day 2: Wine & Nature</h3>
+            <p>Indulge in the best of South African wines!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Head to the Cape Winelands for wine tasting</li>
+                <li>12:00 PM - Enjoy a gourmet lunch at a vineyard</li>
+                <li>3:00 PM - Explore the charming town of Stellenbosch</li>
+                <li>7:00 PM - Dinner at a local bistro</li>
+            </ol>
+
+            <h3>Day 3: Adventure and Departure</h3>
+            <p>Experience thrilling adventures before you leave!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Go kayaking in Hout Bay</li>
+                <li>1:00 PM - Lunch at a waterfront restaurant</li>
+                <li>3:00 PM - Check out and depart for the airport</li>
+            </ul>
+        </div>
+
+        <!-- Kruger National Park Itinerary -->
+        <div id="kruger" class="itinerary">
+            <h2>Kruger National Park Itinerary</h2>
+            <h3>Day 1: Arrival and Evening Game Drive</h3>
+            <p><strong>Prepare for an unforgettable wildlife experience!</strong></p>
+            <ul>
+                <li>12:00 PM - Arrive at Kruger National Park</li>
+                <li>1:00 PM - Check into your lodge</li>
+                <li>3:00 PM - Afternoon tea and briefing on safaris</li>
+                <li>4:00 PM - Evening game drive</li>
+                <li>7:00 PM - Dinner at the lodge</li>
+            </ul>
+
+            <h3>Day 2: Full-Day Safari</h3>
+            <p>Get ready for a day of adventure!</p>
+            <ol>
+                <li>5:30 AM - Early morning game drive</li>
+                <li>8:00 AM - Breakfast in the bush</li>
+                <li>9:00 AM - Continue game drive</li>
+                <li>12:30 PM - Return to lodge for lunch</li>
+                <li>3:30 PM - Afternoon game drive</li>
+                <li>7:00 PM - Dinner and optional night drive</li>
+            </ol>
+
+            <h3>Day 3: Explore and Departure</h3>
+            <p>Before you leave, discover more about the wildlife!</p>
+            <ul>
+                <li>7:00 AM - Breakfast at the lodge</li>
+                <li>9:00 AM - Visit a nearby cultural village</li>
+                <li>12:00 PM - Return to lodge for lunch</li>
+                <li>1:00 PM - Check out and depart</li>
+            </ul>
+        </div>
+
+        <!-- Durban Itinerary -->
+        <div id="durban" class="itinerary">
+            <h2>Durban Itinerary</h2>
+            <h3>Day 1: Arrival and Beach Fun</h3>
+            <p><strong>Dive into the vibrant coastal culture of Durban!</strong></p>
+            <ul>
+                <li>10:00 AM - Arrive in Durban</li>
+                <li>12:00 PM - Check into your hotel</li>
+                <li>1:00 PM - Lunch on the Golden Mile</li>
+                <li>3:00 PM - Relax at the beach or try surfing</li>
+                <li>6:00 PM - Dinner at a beachfront restaurant</li>
+            </ul>
+
+            <h3>Day 2: Culture and Cuisine</h3>
+            <p>Experience the rich heritage of Durban!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Explore the uShaka Marine World</li>
+                <li>12:00 PM - Lunch at a local curry house</li>
+                <li>2:00 PM - Visit the Durban Botanic Gardens</li>
+                <li>7:00 PM - Dinner at a lively local venue</li>
+            </ol>
+
+            <h3>Day 3: Nature and Adventure</h3>
+            <p>Uncover the natural beauty of Durban!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Visit the Valley of a Thousand Hills</li>
+                <li>1:00 PM - Lunch with a view</li>
+                <li>3:00 PM - Return to hotel to check out</li>
+                <li>5:00 PM - Depart for the airport</li>
+            </ul>
+        </div>
+
+        <!-- Knysna Itinerary -->
+        <div id="knysna" class="itinerary">
+            <h2>Knysna Itinerary</h2>
+            <h3>Day 1: Arrival and Relaxation</h3>
+            <p><strong>Welcome to the serene beauty of Knysna!</strong></p>
+            <ul>
+                <li>12:00 PM - Arrive in Knysna</li>
+                <li>1:00 PM - Check into your hotel</li>
+                <li>2:00 PM - Lunch at a waterfront café</li>
+                <li>4:00 PM - Stroll through the Knysna Waterfront</li>
+                <li>7:00 PM - Dinner at a local seafood restaurant</li>
+            </ul>
+
+            <h3>Day 2: Nature Exploration</h3>
+            <p>Discover the stunning landscapes of Knysna!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Hike in the Knysna Forest</li>
+                <li>12:00 PM - Picnic lunch in the park</li>
+                <li>2:00 PM - Kayak on the lagoon</li>
+                <li>6:00 PM - Dinner at a cozy eatery</li>
+            </ol>
+
+            <h3>Day 3: Adventure and Departure</h3>
+            <p>Experience thrilling adventures before you leave!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Explore the Knysna Heads</li>
+                <li>1:00 PM - Lunch at a local bistro</li>
+                <li>3:00 PM - Check out and depart for your next adventure</li>
+            </ul>
+        </div>
+
+        <!-- Johannesburg Itinerary -->
+        <div id="johannesburg" class="itinerary">
+            <h2>Johannesburg Itinerary</h2>
+            <h3>Day 1: Arrival and City Exploration</h3>
+            <p><strong>Experience the vibrant heart of South Africa!</strong></p>
+            <ul>
+                <li>10:00 AM - Arrive in Johannesburg</li>
+                <li>12:00 PM - Check into your hotel</li>
+                <li>1:00 PM - Lunch at a local café</li>
+                <li>3:00 PM - Visit the Apartheid Museum</li>
+                <li>6:00 PM - Dinner at a trendy restaurant in Maboneng</li>
+            </ul>
+
+            <h3>Day 2: Culture and History</h3>
+            <p>Uncover the rich history of Johannesburg!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Tour of Soweto</li>
+                <li>12:00 PM - Lunch at Vilakazi Street</li>
+                <li>2:00 PM - Explore the Cradle of Humankind</li>
+                <li>7:00 PM - Dinner and nightlife in the city</li>
+            </ol>
+
+            <h3>Day 3: Nature and Departure</h3>
+            <p>Before you leave, enjoy the natural beauty of Johannesburg!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Visit the Johannesburg Botanical Gardens</li>
+                <li>1:00 PM - Lunch at a local eatery</li>
+                <li>3:00 PM - Check out and depart</li>
+            </ul>
+        </div>
+
+        <!-- Gqeberha Itinerary -->
+        <div id="gqeberha" class="itinerary">
+            <h2>Gqeberha (Port Elizabeth) Itinerary</h2>
+            <h3>Day 1: Arrival and Beach Fun</h3>
+            <p><strong>Welcome to the beautiful coastline of Gqeberha!</strong></p>
+            <ul>
+                <li>10:00 AM - Arrive in Gqeberha</li>
+                <li>12:00 PM - Check into your hotel</li>
+                <li>1:00 PM - Lunch at a beachfront restaurant</li>
+                <li>3:00 PM - Explore the Boardwalk entertainment area</li>
+                <li>6:00 PM - Dinner at a local grill house</li>
+            </ul>
+
+            <h3>Day 2: Nature and Wildlife</h3>
+            <p>Experience the rich biodiversity of the region!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Visit Addo Elephant National Park</li>
+                <li>12:30 PM - Lunch in the park</li>
+                <li>2:00 PM - Continue wildlife viewing</li>
+                <li>7:00 PM - Dinner at a local seafood restaurant</li>
+            </ol>
+
+            <h3>Day 3: Culture and Departure</h3>
+            <p>Before you leave, soak up the local culture!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Explore local markets</li>
+                <li>1:00 PM - Lunch at a café</li>
+                <li>3:00 PM - Check out and depart for your next adventure</li>
+            </ul>
+        </div>
+
+        <!-- Pretoria Itinerary -->
+        <div id="pretoria" class="itinerary">
+            <h2>Pretoria Itinerary</h2>
+            <h3>Day 1: Arrival and City Tour</h3>
+            <p><strong>Discover the rich heritage of Pretoria!</strong></p>
+            <ul>
+                <li>10:00 AM - Arrive in Pretoria</li>
+                <li>12:00 PM - Check into your hotel</li>
+                <li>1:00 PM - Lunch at a local eatery</li>
+                <li>3:00 PM - Visit the Union Buildings</li>
+                <li>6:00 PM - Dinner at a local restaurant</li>
+            </ul>
+
+            <h3>Day 2: Culture and Nature</h3>
+            <p>Experience the vibrant culture and nature!</p>
+            <ol>
+                <li>8:00 AM - Breakfast at the hotel</li>
+                <li>9:00 AM - Visit the Pretoria Botanical Gardens</li>
+                <li>12:00 PM - Lunch at a café</li>
+                <li>2:00 PM - Explore Freedom Park</li>
+                <li>7:00 PM - Dinner at a trendy bistro</li>
+            </ol>
+
+            <h3>Day 3: Historical Sites and Departure</h3>
+            <p>Before you leave, immerse yourself in history!</p>
+            <ul>
+                <li>9:00 AM - Breakfast at the hotel</li>
+                <li>11:00 AM - Visit the Voortrekker Monument</li>
+                <li>1:00 PM - Lunch at a local spot</li>
+                <li>3:00 PM - Check out and depart</li>
+            </ul>
+        </div>
+
+        <!-- Pilanesberg Itinerary -->
+        <div id="pilanesberg" class="itinerary">
+            <h2>Pilanesberg National Park Itinerary</h2>
+            <h3>Day 1: Arrival and Evening Game Drive</h3>
+            <p><strong>Get ready for an exhilarating wildlife experience!</strong></p>
+            <ul>
+                <li>12:00 PM - Arrive at Pilanesberg National Park</li>
+                <li>1:00 PM - Check into your lodge</li>
+                <li>3:00 PM - Afternoon tea and orientation</li>
+                <li>4:00 PM - Evening game drive</li>
+                <li>7:00 PM - Dinner at the lodge</li>
+            </ul>
+
+            <h3>Day 2: Full-Day Safari</h3>
+            <p>Explore the park like never before!</p>
+            <ol>
+                <li>5:30 AM - Early morning game drive</li>
+                <li>8:00 AM - Breakfast in the bush</li>
+                <li>9:00 AM - Continue your adventure</li>
+                <li>12:30 PM - Return to lodge for lunch</li>
+                <li>3:30 PM - Afternoon game drive</li>
+                <li>7:00 PM - Dinner at the lodge</li>
+            </ol>
+
+            <h3>Day 3: Nature and Departure</h3>
+            <p>Before you leave, discover the beauty of the park!</p>
+            <ul>
+                <li>7:00 AM - Breakfast at the lodge</li>
+                <li>9:00 AM - Visit a scenic viewpoint</li>
+                <li>12:00 PM - Return to lodge for lunch</li>
+                <li>1:00 PM - Check out and depart</li>
+            </ul>
+        </div>
+
+        <!-- Madikwe Itinerary -->
+        <div id="madikwe" class="itinerary">
+            <h2>Madikwe Game Reserve Itinerary</h2>
+            <h3>Day 1: Arrival and Evening Safari</h3>
+            <p><strong>Welcome to the wild beauty of Madikwe!</strong></p>
+            <ul>
+                <li>12:00 PM - Arrive at Madikwe Game Reserve</li>
+                <li>1:00 PM - Check into your lodge</li>
+                <li>3:00 PM - Afternoon tea and briefing</li>
+                <li>4:00 PM - Evening game drive</li>
+                <li>7:00 PM - Dinner at the lodge</li>
+            </ul>
+
+            <h3>Day 2: Full-Day Safari Adventure</h3>
+            <p>Experience the thrill of wildlife viewing!</p>
+            <ol>
+                <li>5:30 AM - Early morning game drive</li>
+                <li>8:00 AM - Breakfast in the bush</li>
+                <li>9:00 AM - Continue your safari experience</li>
+                <li>12:30 PM - Return to lodge for lunch</li>
+                <li>3:30 PM - Afternoon game drive</li>
+                <li>7:00 PM - Dinner at the lodge</li>
+            </ol>
+
+            <h3>Day 3: Culture and Departure</h3>
+            <p>Before you leave, immerse yourself in local culture!</p>
+            <ul>
+                <li>7:00 AM - Breakfast at the lodge</li>
+                <li>9:00 AM - Visit a local community</li>
+                <li>12:00 PM - Return to lodge for lunch</li>
+                <li>1:00 PM - Check out and depart</li>
+            </ul>
+        </div>
+
+        
+   <h1>Popular Places to Dine In <i class="fa-solid fa-utensils fa-beat-fade fa-xs" style="color: #db0000;"></i></h1>
+    <div class="restaurant-grid">
+        <div class="restaurant-card" id="kream">
+            <img src="https://storage.googleapis.com/prza/picture/image/3986/large_c84513b330.jpeg" alt="Kream">
+            <img src="https://static-prod.dineplan.com/api/images/restaurants/199/kream-brooklyn-1713949939.jpg?d=1713957140" alt="Kream">
+            <h3>Kream (Gauteng)</h3>
+            <p><strong>Cuisine:</strong> Contemporary South African</p>
+            <p>A trendy eatery known for its upscale dining experience, offering a mix of contemporary cuisine and classic dishes. The ambiance is chic, making it perfect for a stylish night out.</p>
+        </div>
+        <div class="restaurant-card" id="the-test-kitchen">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/49/a0/2b/the-test-kitchen-origins.jpg?w=1400&h=-1&s=1" alt="The Test Kitchen 1">
+            <img src="https://sandtontimes.co.za/wp-content/uploads/2022/03/sandtontimes-test-kitchen-carbon-001-2000x1125-1.jpg" alt="The Test Kitchen 2">
+            <h3>The Test Kitchen (Western Cape)</h3>
+            <p><strong>Cuisine:</strong> International fine dining</p>
+            <p>Frequently ranked among the best restaurants in the world, The Test Kitchen offers a unique fine dining experience with an innovative tasting menu inspired by global flavors.</p>
+        </div>
+        <div class="restaurant-card" id="the-halyard">
+            <img src="https://images.zola.com/85bb20d6-b755-499c-96e0-261020069307" alt="The Halyard 1">
+            <img src="https://digital.ihg.com/is/image/ihg/vignette-collection-liverpool-9603692645-4x3" alt="The Halyard 2">
+            <h3>The Halyard (Eastern Cape)</h3>
+            <p><strong>Cuisine:</strong> Seafood and contemporary South African</p>
+            <p>Located on the beachfront, The Halyard specializes in fresh seafood and contemporary dishes, providing stunning views of the ocean.</p>
+        </div>
+        <div class="restaurant-card" id="the-oyster-box">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/161778056.jpg?k=fc5dc3bbe68cb470b1bd60e7b6770ac4f04abe54496af93d1cf38603037cfabf&o=&hp=1" alt="The Oyster Box 1">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/f1/54/20/the-grill-room.jpg" alt="The Oyster Box 2">
+            <h3>The Oyster Box (KZN)</h3>
+            <p><strong>Cuisine:</strong> Seafood and fine dining</p>
+            <p>This luxurious hotel features a world-class restaurant offering fine dining with a focus on seafood. The setting is breathtaking, overlooking the Indian Ocean.</p>
+        </div>
+        <div class="restaurant-card" id="the-panorama-restaurant">
+            <img src="https://static.wixstatic.com/media/7d597f_cff84b67de43424b8ce27d7a0d140747~mv2.jpg/v1/fill/w_640,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/7d597f_cff84b67de43424b8ce27d7a0d140747~mv2.jpg" alt="The Panorama Restaurant 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW-jIwpUBOc_lIK5HHqM8wUgamtw12PuiJCA&s" alt="The Panorama Restaurant 2">
+            <h3>The Panorama Restaurant (Mpumalanga)</h3>
+            <p><strong>Cuisine:</strong> South African and contemporary</p>
+            <p>Nestled in the heart of the Blyde River Canyon, this restaurant offers stunning views and a menu featuring local and seasonal ingredients.</p>
+        </div>
+        <div class="restaurant-card" id="mikados">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh6299myKuGcvjVJ2ZQhAm3U4A_HJ18uJMXw&s" alt="Mikados 1">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/87/95/d3/coast-to-coast.jpg" alt="Mikados 2">
+            <h3>Mikados (Free State)</h3>
+            <p><strong>Cuisine:</strong> Japanese</p>
+            <p>An elegant spot known for its Japanese cuisine and sushi. Mikados offers a stylish dining environment with a beautiful setting.</p>
+        </div>
+        <div class="restaurant-card" id="summerfields-kitchen">
+            <img src="https://summerfields.co.za/assets/components/phpthumbof/cache/70af0f8e-d8d8-4bc4-bbcb-24e6ebca8eea.0e6722299908c36e20e76670c67c08f5.jpg" alt="Summerfields Kitchen">
+            <img src="https://q-xx.bstatic.com/xdata/images/hotel/max500/126702961.jpg?k=dc1ea4392c5dd62c036e4c6f8ffaa778066725fa3b8bc554b86e122d603b87f0&o=" alt="Summerfields Kitchen">
+            <h3>Summerfields Kitchen (Mpumalanga)</h3>
+            <p><strong>Cuisine:</strong> African-inspired and game dishes</p>
+            <p>This restaurant offers an African-inspired menu, featuring local game dishes. The setting provides an authentic safari experience amidst beautiful scenery.</p>
+        </div>
+        <div class="restaurant-card" id="wood-and-fire">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/b3/07/2c/20180714-135109-largejpg.jpg?w=1000&h=-1&s=1" alt="Wood and Fire">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMuBt6bAnOCQMaAB8s5I2ltQgk3VQ461jN7A&s" alt="Wood and Fire">
+            <h3>Wood and Fire (Gauteng)</h3>
+            <p><strong>Cuisine:</strong> Wood-fired dishes and artisanal pizzas</p>
+            <p>This restaurant focuses on wood-fired dishes and artisanal pizzas, all in a charming atmosphere overlooking the dam. Perfect for a relaxed meal with friends or family.</p>
+        </div>
+        <div class="restaurant-card" id="the-olive-tree">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1d/26/1c/24/dining-room.jpg" alt="The Olive Tree 1">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/34/6d/41/20161005-184735-largejpg.jpg?w=1200&h=-1&s=1" alt="The Olive Tree 2">
+            <h3>The Olive Tree (Northern Cape)</h3>
+            <p><strong>Cuisine:</strong> Mediterranean-inspired</p>
+            <p>A cozy eatery known for its Mediterranean-inspired dishes and warm atmosphere, The Olive Tree is a favorite among locals and visitors alike.</p>
+        </div>
+    </div>
+        
+<div style="text-align: center;">
+    <button class="dineplan-button" onclick="window.location.href='https://www.dineplan.com/'">    
+        Make Your Reservation
+    </button>   
+        
+        <br>
+       
+<h1>Video Showcase <i class="fa-brands fa-youtube fa-fade fa-xs" style="color: #ff0000; margin-left: 0px; vertical-align: middle;"></i></h1>
+
+
+<div class="video-container">
+        <iframe src="https://www.youtube.com/embed/B0gXu14L2WU?si=CC3WCp95te6kAy82" title="Vacation Oasis Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        <iframe src="https://www.youtube.com/embed/zNx5F8htBvo?si=KkkdusWK7w_Hg-Ix" title="Vacation Oasis Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+        
+    <h3>Plan Ahead with Real-Time Weather Insights</h3>
+<div class="weather-widget">
+    <!-- Buttons for each location -->
+    <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+        <button onclick="showWeather('weather-cape-town')">Cape Town</button>
+        <button onclick="showWeather('weather-gqeberha')">Gqeberha</button>
+        <button onclick="showWeather('weather-madikwe')">Madikwe</button>
+        <button onclick="showWeather('weather-knysna')">Knysna</button>
+        <button onclick="showWeather('weather-johannesburg')">Johannesburg</button>
+        <button onclick="showWeather('weather-pilanesberg')">Pilanesberg</button>
+        <button onclick="showWeather('weather-skukuza')">Skukuza</button>
+        <button onclick="showWeather('weather-durban')">Durban</button>
+        <button onclick="showWeather('weather-pretoria')">Pretoria</button>
+    </div>
+
+    <!-- Weather Widgets -->
+    <div id="weather-cape-town" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n33d9218d42/cape-town/" 
+           data-label_1="CAPE TOWN" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           CAPE TOWN WEATHER
+        </a>
+    </div>
+
+    <div id="weather-gqeberha" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n33d7125d52/port-elizabeth/" 
+           data-label_1="GQEBERHA" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           GQEBERHA WEATHER
+        </a>
+    </div>
+
+    <div id="weather-madikwe" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n25d4026d57/madikwe/" 
+           data-label_1="MADIKWE" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           MADIKWE WEATHER
+        </a>
+    </div>
+
+    <div id="weather-knysna" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n34d0423d05/knysna/" 
+           data-label_1="KNYSNA" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           KNYSNA WEATHER
+        </a>
+    </div>
+
+    <div id="weather-johannesburg" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n26d2028d05/johannesburg/" 
+           data-label_1="JOHANNESBURG" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           JOHANNESBURG WEATHER
+        </a>
+    </div>
+
+    <div id="weather-pilanesberg" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n25d2327d03/pilanesberg-national-park/" 
+           data-label_1="PILANESBERG NATIONAL PARK" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           PILANESBERG NATIONAL PARK WEATHER
+        </a>
+    </div>
+
+    <div id="weather-skukuza" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n24d9931d60/skukuza/" 
+           data-label_1="SKUKUZA" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           SKUKUZA WEATHER
+        </a>
+    </div>
+
+    <div id="weather-durban" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n29d8631d02/durban/" 
+           data-label_1="DURBAN" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           DURBAN WEATHER
+        </a>
+    </div>
+
+    <div id="weather-pretoria" class="weather">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n25d7528d23/pretoria/" 
+           data-label_1="PRETORIA" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="dark">
+           PRETORIA WEATHER
+        </a>
+    </div>
+</div>
+            
+    <!--  The Map Section -->
+    <div class="vacation-map-container">
+<h1 class="map-heading">Explore South Africa <i class="fa-duotone fa-solid fa-earth-africa fa-fade fa-lg" style="--fa-primary-color: #047c0c; --fa-secondary-color: #353489; --fa-secondary-opacity: 1;"></i></h1>
+
+
+        <div id="vacation-map"></div>
+    </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+<!-- The Contact Section -->
+<section id="contact">
+    <button id="toggle-button" onclick="toggleContactForm()">Contact Us</button>
+    <div id="contact-form-container" style="display: none;">
+        <p>We’d love to hear from you! Please fill out the form below.</p>
+        <form id="contact-form" onsubmit="return handleSubmit(event)">
+           <label for="name">Name: <i class="fa-solid fa-signature fa-fade fa-lg" style="color: #000000;"></i></label>
+
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label for="email">Email: <i class="fa-solid fa-envelope fa-fade fa-lg" style="color: #000000;"></i></label>
+
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+
+           <label for="phone">Phone: <i class="fa-solid fa-phone fa-fade fa-lg" style="color: #000000;"></i></label>
+
+            <input type="tel" id="phone" name="phone" placeholder="Your phone" />
+
+         <label for="message">Message: <i class="fa-solid fa-pen-to-square fa-fade fa-lg" style="color: #000000;"></i></label>
+
+            <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+            <fieldset>
+                <legend>Trip Type:</legend>
+                <label><input type="radio" name="trip-type" value="safari" required /> Safari</label>
+                <label><input type="radio" name="trip-type" value="beach" /> Beach</label>
+                <label><input type="radio" name="trip-type" value="adventure" /> Adventure</label>
+                <label><input type="radio" name="trip-type" value="cultural-experience" /> Cultural Experience</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Location(s):</legend>
+                <label><input type="checkbox" name="locations[]" value="cape-town" /> Cape Town</label>
+                <label><input type="checkbox" name="locations[]" value="durban" /> Durban</label>
+                <label><input type="checkbox" name="locations[]" value="kruger-national-park" /> Kruger NP</label>
+                <label><input type="checkbox" name="locations[]" value="knysna" /> Knysna</label>
+                <label><input type="checkbox" name="locations[]" value="gqeberha" /> Gqeberha</label>
+            </fieldset>
+
+            <p>For urgent inquiries, email us at:         
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=denmmthimkhulu@gmail.com" target="_blank">info@vacationoasis.com</a>
+            </p>
+
+            <button type="submit">Send</button>
+        </form>
+        <div id="response-message" style="display: none; margin-top: 20px;"></div>
+    </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="About Us.html">About Us</a>
+            <a href="Accommodation.html">Accommodation</a>
+            <a href="Booking and Contact us.html">Booking & Contact Us</a>
+            <a href="Explore Experiences.html">Explore Experiences</a>
+            <a href="Frequently Asked Questions.html">FAQs</a>
+            <a href="Packing Lists and Travel Tips.html">Packing Lists & Tips</a>
+            <a href="Provinces.html">Provinces</a>
+            <a href="Travel Packages and Offers.html">Packages & Offers</a>
+            <a href="Travel Services.html">Travel Services</a>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=denmmthimkhulu@gmail.com" target="_blank">Send us an Email</a>
+        </div>
+        
+        <div class="footer-container">
+           <h3 class="footer-heading">Follow Us</h3>
+            <div class="icon-container">
+                
+                                <a href="https://www.instagram.com/dan_mthimkhulu/" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram fa-beat" style="color: #ff000d;"></i>
+                
+
+                </a>
+                
+                
+                                <a href="https://www.facebook.com/profile.php?id=100077472994971" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook fa-beat" style="color: #1100ff;"></i>
+                
+
+                </a>
+
+                                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                    <i class="fa-brands fa-square-twitter fa-beat" style="color: #74C0FC;"></i>
+                
+                </a>
+            </div>
+            <p class="footer-copy">&copy; 2024 Vacation Oasis. All Rights Reserved.</p> 
+        </div>      
+
+
+    </div>
+</footer>
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+
+        <script>
+            const carousel = document.getElementById("carousel");
+            const totalItems = carousel.children.length;
+            let index = 0;
+
+            function moveCarousel() {
+                index += 3; // Move 3 pictures in one time.
+                if (index >= totalItems) {
+                    index = 0; 
+                }
+                const offset = -(index * (100 / 3)); 
+                carousel.style.transform = `translateX(${offset}%)`; 
+            }
+
+            setInterval(moveCarousel, 3000); // Pictures will move every 3 seconds
+
+        function showProvince(provinceId) {
+            const tables = document.querySelectorAll('.province-table');
+            tables.forEach((table) => table.classList.remove('active'));
+            document.getElementById(provinceId).classList.add('active');  }
+
+        function showItinerary(id) {
+            // It is to Hide all itineraries
+            const itineraries = document.querySelectorAll('.itinerary');
+            itineraries.forEach(itinerary => itinerary.classList.remove('active'));
+
+           
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // It to Show the selected itinerary
+            document.getElementById(id).classList.add('active');
+
+          
+            const activeTab = [...tabs].find(tab => tab.innerText.toLowerCase() === id.replace('-', ' '));
+            if (activeTab) activeTab.classList.add('active');
+        }
+
+        (function() {
+           
+            var vacationMap = L.map("vacation-map", {
+                center: [-30.5595, 22.9375],
+                crs: L.CRS.EPSG3857,
+                zoom: 5,
+                zoomControl: true,
+                preferCanvas: false,
+            });
+
+        
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                "attribution": "Data by &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://www.openstreetmap.org/copyright'>ODbL</a>.",
+                "detectRetina": false,
+                "maxNativeZoom": 18,
+                "maxZoom": 18,
+                "minZoom": 0,
+                "noWrap": false,
+                "opacity": 1,
+                "subdomains": "abc",
+                "tms": false
+            }).addTo(vacationMap);
+
+            // This code it to Add map markers for each location
+            var markerCT = L.marker([-33.9249, 18.4241]).addTo(vacationMap);
+            markerCT.bindPopup("<strong>Cape Town</strong><br>Known for its stunning beaches, Table Mountain, and the V&A Waterfront.");
+
+            var markerDBN = L.marker([-29.8587, 31.0218]).addTo(vacationMap);
+            markerDBN.bindPopup("<strong>Durban</strong><br>Boasts beautiful beaches, a rich cultural heritage, and uShaka Marine World.");
+
+            var markerKnysna = L.marker([-34.0383, 22.9274]).addTo(vacationMap);
+            markerKnysna.bindPopup("<strong>Knysna</strong><br>Famous for its beautiful lagoon, forests, and Knysna Heads.");
+
+            var markerPE = L.marker([-33.9378, 25.5705]).addTo(vacationMap);
+            markerPE.bindPopup("<strong>Gqeberha (Port Elizabeth)</strong><br>Known for beautiful beaches and Addo Elephant National Park.");
+
+            var markerKruger = L.marker([-24.0342, 31.5924]).addTo(vacationMap);
+            markerKruger.bindPopup("<strong>Kruger National Park</strong><br>Home to a diverse array of wildlife.");
+
+            var markerPTA = L.marker([-25.7461, 28.1881]).addTo(vacationMap);
+            markerPTA.bindPopup("<strong>Pretoria</strong><br>Known for its historical sites and jacaranda trees.");
+
+            var markerPilanesberg = L.marker([-25.3041, 27.0554]).addTo(vacationMap);
+            markerPilanesberg.bindPopup("<strong>Pilanesberg National Park</strong><br>Home to the Big Five and stunning landscapes.");
+            
+        
+var markerJoburg = L.marker([-26.2041, 28.0473]).addTo(vacationMap);
+markerJoburg.bindPopup("<strong>Johannesburg</strong><br>A vibrant city known for its rich history, cultural diversity, and economic significance.");
+
+var markerDrakensberg = L.marker([-29.3904, 29.2009]).addTo(vacationMap);
+markerDrakensberg.bindPopup("<strong>Drakensberg Mountains</strong><br>Known for its stunning mountain scenery, hiking trails, and San rock art.");
+
+var markerMadikwe = L.marker([-24.6586, 25.3847]).addTo(vacationMap);
+markerMadikwe.bindPopup("<strong>Madikwe Game Reserve</strong><br>A wildlife reserve famous for its Big Five and luxury lodges.");
+
+        })();
+
+    function toggleContactForm() {
+        const formContainer = document.getElementById('contact-form-container');
+        formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault(); 
+
+        // Display a message after pressing send
+        const responseMessage = document.getElementById('response-message');
+        responseMessage.textContent = "We will contact you shortly.";
+        responseMessage.style.display = "block";
+
+        // The the form after pressing send
+        document.getElementById('contact-form').reset();
+        
+        return true; 
+    }
+     
+                        !function(d,s,id){
+                var js,fjs=d.getElementsByTagName(s)[0];
+                if(!d.getElementById(id)){
+                    js=d.createElement(s);
+                    js.id=id;
+                    js.src='https://weatherwidget.io/js/widget.min.js';
+                    fjs.parentNode.insertBefore(js,fjs);
+                }
+            }(document,'script','weatherwidget-io-js');
+            
+            
+   
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'weatherwidget-io-js'));
+
+    // Function for weather widget
+    function showWeather(locationId) {
+        // it is to Hide all weather widgets except the one that should be displayed, at all time.
+        document.querySelectorAll('.weather').forEach(function(widget) {
+            widget.style.display = 'none';
+        });
+        
+        // to select the weather you want to see 
+        var selectedWidget = document.getElementById(locationId);
+        if (selectedWidget) {
+            selectedWidget.style.display = 'block';
+        }
+    }
+
+    // Is to always show the Capetown weather at all time
+    showWeather('weather-cape-town');
+            
+        </script>
+    </body>
+</html>
